@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+    namespace="NHibernateExample.Models" assembly="NHibernateExample">
+
+	<class name="CarModel" table="CarModel">
+
+		<id name="Id">
+			<column name="Id" sql-type="int" not-null="true"/>
+			<generator class="native" />
+		</id>
+
+		<many-to-one name="Manufacturer" column="Manufacturer" not-null="true"/>
+
+		<property name="Name">
+			<column name="Name" length="16" not-null="true" />
+		</property>
+
+		<set name="CarManufacturers">
+			<key column="Manufacturer" not-null="true"/>
+			<one-to-many class="CarManufacturer"/>
+		</set>
+		
+	</class>
+
+</hibernate-mapping>
