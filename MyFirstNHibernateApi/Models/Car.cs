@@ -10,6 +10,6 @@ namespace MyFirstNHibernateApi.Models
         public virtual int YearOfProduction { get; set; }
         public virtual string RegistrationNumber { get; set; }
 
-        public virtual ISet<CarModel> CarModels { get; set; }
+        public virtual ISet<CarModel> CarModels { get; set; } = new HashSet<CarModel>();
     }
 }

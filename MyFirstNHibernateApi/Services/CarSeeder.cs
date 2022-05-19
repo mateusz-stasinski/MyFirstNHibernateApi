@@ -17,15 +17,12 @@ namespace MyFirstNHibernateApi.Services
             {
                 using (var tx = session.BeginTransaction())
                 {
-                    var car = new Car()
-                    {
-                        Manufacturer = "BMW",
-                        Model = "seria 3 E90",
-                        YearOfProduction = 2005,
-                        RegistrationNumber = "CBY 1111"
-                    };
-                    session.Save(car);
-                    tx.Commit();
+                    //var car = new Car()
+                    //{
+                       
+                    //};
+                    //session.Save(car);
+                    //tx.Commit();
                 }
             }
         }

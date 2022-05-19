@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-    namespace="NHibernateExample.Models" assembly="NHibernateExample">
-CarManufacturer
+    namespace="MyFirstNHibernateApi.Models" assembly="MyFirstNHibernateApi">
+
 	<class name="CarManufacturer" table="CarManufacturer">
 
 		<id name="Id">

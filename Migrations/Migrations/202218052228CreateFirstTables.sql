@@ -1,4 +1,6 @@
-﻿CREATE TABLE CarManufacturer
+﻿USE [NHibernateExample]
+
+CREATE TABLE CarManufacturer
 (
 	Id int PRIMARY KEY IDENTITY(1,1),
 	Name nvarchar(16) NOT NULL
