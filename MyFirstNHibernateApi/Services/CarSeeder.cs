@@ -1,4 +1,6 @@
 ﻿using MyFirstNHibernateApi.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MyFirstNHibernateApi.Services
 {
@@ -15,14 +17,54 @@ namespace MyFirstNHibernateApi.Services
         {
             using (var session = _sessionFactory.OpenSession())
             {
-                using (var tx = session.BeginTransaction())
+                if (!session.Query<CarManufacturer>().Any())
                 {
-                    //var car = new Car()
-                    //{
-                       
-                    //};
-                    //session.Save(car);
-                    //tx.Commit();
+                    using (var tx = session.BeginTransaction())
+                    {
+                        var manufacturers = new HashSet<CarManufacturer>()
+                        {
+                            new CarManufacturer()
+                            {
+                                Name = "Toyota",
+                                CarModels = new HashSet<CarModel>()
+                                {
+                                    new CarModel()
+                                    {
+                                        Name = "Corolla"
+                                    },
+
+                                    new CarModel()
+                                    {
+                                        Name = "Avensis"
+                                    }
+                                }
+                            },
+
+                            new CarManufacturer()
+                            {
+                                Name = "Volkswagen",
+                                CarModels = new HashSet<CarModel>()
+                                {
+                                    new CarModel()
+                                    {
+                                        Name = "Golf"
+                                    },
+
+                                    new CarModel()
+                                    {
+                                        Name = "Pasat"
+                                    }
+                                }
+                            }
+                        };
+
+                        foreach(var manufacturer in manufacturers)
+                        {
+                            session.Save(manufacturer);
+                        }
+                        
+                        tx.Commit();
+                    }
                 }
             }
         }

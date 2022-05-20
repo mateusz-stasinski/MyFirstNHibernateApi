@@ -9,17 +9,12 @@
 			<generator class="native" />
 		</id>
 
-		<many-to-one name="Manufacturer" column="Manufacturer" class="CarManufacturer" not-null="true"/>
+		<!--<many-to-one name="Manufacturer" column="Manufacturer" class="CarManufacturer" not-null="true" />-->
 
 		<property name="Name">
 			<column name="Name" length="16" not-null="true" />
 		</property>
 
-		<set name="CarManufacturers" table="CarManufacturer">
-			<key column="Manufacturer" not-null="true"/>
-			<one-to-many class="CarManufacturer"/>
-		</set>
-		
 	</class>
 
 </hibernate-mapping>

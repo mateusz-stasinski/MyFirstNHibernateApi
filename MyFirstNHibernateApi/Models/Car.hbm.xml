@@ -9,7 +9,7 @@
 			<generator class="guid" />
 		</id>
 
-		<many-to-one name="Model" column="Model" class="CarModel" not-null="true"/>
+		<many-to-one name="Model" column="Model" class="CarModel" unique="true" not-null="true"/>
 
 		<property name="YearOfProduction" />
 		
@@ -17,10 +17,10 @@
 			<column name="RegistrationNumber" length="8" not-null="true" />
 		</property>
 
-		<set name="CarModels" table="CarModel">
+		<!--<set name="CarModel" table="CarModel">
 			<key column="Model" not-null="true"/>
 			<one-to-many class="CarModel"/>
-		</set>
+		</set>-->
 		
 	</class>
 

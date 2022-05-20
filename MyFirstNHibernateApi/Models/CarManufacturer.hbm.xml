@@ -12,6 +12,12 @@
 		<property name="Name">
 			<column name="Name" length="16" not-null="true" />
 		</property>
+
+		<set name="CarModels" table="CarModel" cascade="all">
+			<key column="Manufacturer" not-null="true" />
+			<one-to-many class="CarModel" />
+		</set>
+		
 	</class>
 
 </hibernate-mapping>
